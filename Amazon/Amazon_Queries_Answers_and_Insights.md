@@ -1,4 +1,4 @@
-## 1) Question:
+###Question:
 List all employees with their warehouse locations. Show employee first name, last name, and warehouse location.
 
 SQL Query:
@@ -12,17 +12,17 @@ FROM employees e
 INNER JOIN warehouses w
 ON e.warehouse_id = w.warehouse_id;
 
-### Answer / Result:
+###Answer / Result:
 Returns a table showing each employee’s first name, last name, and the location of the warehouse they are assigned to.
 
-### Insight:
+###Insight:
 This query uses an INNER JOIN to combine data from the employees and warehouses tables.
 The join condition e.warehouse_id = w.warehouse_id links each employee to the warehouse they belong to.
 Only employees with a matching warehouse record will appear in the result.
 
 
 
-### 2) Question:
+###Question:
 Find all customers who are Prime members. Show first name, last name, email, and country.
 
 SQL Query:
@@ -32,15 +32,15 @@ SELECT first_name, last_name, email, country
 FROM customers
 WHERE prime_member = 1;
 
-### Answer / Result:
+###Answer / Result:
 Returns a list of customers who have a Prime membership, displaying their first name, last name, email, and country.
 
-### Insight:
+###Insight:
 The WHERE clause filters the dataset so that only rows where prime_member = 1 are returned. In many databases, 1 represents true, meaning the customer is a Prime member.
 
 
 
-### 3) Question:
+###Question:
 List all products in the 'Electronics' category. Show product name, price, and stock quantity.
 
 SQL Query:
@@ -56,12 +56,12 @@ WHERE category = 'Electronics';
 ### Answer / Result:
 Returns a list of all products that belong to the Electronics category, displaying their name, price, and available stock quantity.
 
-### Insight:
+###Insight:
 The WHERE clause filters the rows so that only products where the category column equals 'Electronics' are included
 
 
 
-### 4) Question:
+###Question:
 Find all orders placed after 2024-01-01. Show order ID, customer full name (first and last name combined), and order date.
 
 SQL Query:
@@ -76,7 +76,7 @@ INNER JOIN customers c
 ON o.customer_id = c.customer_id
 WHERE o.order_date > '2024-01-01';
 
-### Answer / Result:
+###Answer / Result:
 Returns all orders placed after January 1, 2024, displaying the order ID, the customer's full name, and the order date.
 
 ### Insight:
@@ -86,7 +86,7 @@ The WHERE clause filters the results to include only orders placed after the spe
 
 
 
-### 5) Question:
+###Question:
 Retrieve all warehouse employees hired in 2024. Show employee first name, last name, hire date, warehouse name, and warehouse location.
 
 SQL Query:
@@ -114,7 +114,7 @@ The INNER JOIN links employees to their warehouses, and ORDER BY e.hire_date DES
 
 
 
-### 6) Question:
+###Question:
 Calculate the average rating for each product category. Show category name, number of products, and average rating. Only include categories with an average rating above 4.0.
 
 SQL Query:
@@ -141,7 +141,7 @@ COUNT(DISTINCT p.product_id) ensures each product is counted once, even if it ha
 
 
 
-### 7) Question:
+### Question:
 For each warehouse, calculate the total number of shipments, total employees, and show capacity information. Display warehouse name, location, employee count, shipment count, and capacity.
 
 SQL Query:
@@ -171,7 +171,7 @@ The GROUP BY clause aggregates the data at the warehouse level, producing a summ
 
 
 
-### 8) Question:
+### Question:
 Find customers who have placed more than 1 order. Show customer name, email, total orders, and total amount spent. Order the results by total amount spent in descending order.
 
 SQL Query:
@@ -198,7 +198,7 @@ The HAVING clause filters grouped results to include only customers with more th
 
 
 
-### 9) Question:
+### Question:
 Find all employees whose salary is higher than the average salary of their department. Show employee name, department name, employee salary, department average salary, and salary difference.
 
 SQL Query:
@@ -236,7 +236,7 @@ The WHERE clause filters only employees whose salary exceeds the department aver
 
 
 
-### 10) Question:
+### Question:
 Create a seller performance report showing seller name, total products sold, total revenue, average product rating, and revenue rank. Include only sellers with at least 2 products sold, and rank sellers by revenue using a window function.
 
 SQL Query:
@@ -270,7 +270,7 @@ The HAVING clause ensures that only sellers with at least two sold products are 
 
 
 
-### 11) Question:
+### Question:
 Create a hierarchical employee report showing each employee with their manager’s name, department, salary difference from their manager, and their rank within their department by salary. Also include the department average salary for comparison.
 
 ```
@@ -315,7 +315,7 @@ COALESCE() ensures that if an employee has no manager, the salary difference def
 
 
 
-### 12) Question:
+### Question:
 Identify products that may need restocking. Calculate days of inventory remaining, revenue impact, warehouse location, and assign a restock priority rank. Use order history to estimate sales and rank products based on low stock and high sales volume.
 
 SQL Query:
@@ -363,7 +363,7 @@ A window function (RANK()) prioritizes products for restocking by ranking low st
 
 
 
-### 13) Question:
+### Question:
 Identify each customer’s highest value order. Show customer name, order ID, order amount, and the rank of the order within that customer’s orders.
 
 SQL Query:
@@ -402,7 +402,7 @@ The outer query filters to only those rows where order_rank = 1, effectively ret
 
 
 
-### 14) Question:
+### Question:
 Calculate the longest gap (in days) between consecutive orders for each customer who has placed at least 3 orders. Show customer name, email, total orders, average gap in days, and maximum gap in days.
 
 ```
@@ -458,7 +458,7 @@ Filtering for customers with at least three orders ensures the analysis is meani
 
 
 
-### 15) Question:
+###Question:
 Create a seller performance report showing seller name, total products sold, total revenue, average product rating, and revenue rank. Include only sellers with at least 2 products sold 
 and rank sellers by revenue using a window function.
 
