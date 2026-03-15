@@ -38,9 +38,8 @@ The goal of this case study is to demonstrate SQL techniques used in real-world 
 16. Total Usage per User  
 17. Above-Average Usage Users  
 18. Support Ticket Distribution by Product  
-19. Product with Most Open Tickets  
-20. User Support Ticket Summary  
-21. Fully Engaged Users (Subscriptions + Usage + Support)
+19. User Support Ticket Summary  
+20. Fully Engaged Users  
 
 ---
 
@@ -450,8 +449,7 @@ Products with higher ticket percentages may indicate **technical issues or compl
 
 ---
 
-
-# 20. User Support Ticket Summary
+# 19. User Support Ticket Summary
 
 ### Question
 Find all users with support tickets showing total and open ticket counts.
@@ -484,7 +482,7 @@ This helps identify **users experiencing frequent issues or requiring support as
 
 ---
 
-# 21. Fully Engaged Users
+# 20. Fully Engaged Users
 
 ### Question
 Find users who have subscriptions, usage activity, and support tickets.
@@ -506,4 +504,4 @@ ON u.user_id = st.user_id;
 Returns users who appear across subscriptions, usage activity, and support tickets.
 
 ### Insight
-These users interact with **multiple aspects of the platform**, making them highly engaged users.  
+These users interact with **multiple aspects of the platform**, making them highly engaged users.
