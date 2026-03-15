@@ -22,6 +22,9 @@ Only employees with a matching warehouse record will appear in the result.
 
 
 
+
+
+
 ### Question:
 Find all customers who are Prime members. Show first name, last name, email, and country.
 
@@ -37,6 +40,10 @@ Returns a list of customers who have a Prime membership, displaying their first 
 
 ### Insight:
 The WHERE clause filters the dataset so that only rows where prime_member = 1 are returned. In many databases, 1 represents true, meaning the customer is a Prime member.
+
+
+
+
 
 
 
