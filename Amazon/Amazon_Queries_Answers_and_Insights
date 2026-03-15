@@ -1,8 +1,9 @@
-Question:
+## Question:
 List all employees with their warehouse locations. Show employee first name, last name, and warehouse location.
 
 SQL Query:
 
+```
 SELECT 
 e.first_name AS first_name,
 e.last_name AS last_name,
@@ -11,12 +12,13 @@ FROM employees e
 INNER JOIN warehouses w
 ON e.warehouse_id = w.warehouse_id;
 
-Answer / Result:
+### Answer / Result:
 Returns a table showing each employee’s first name, last name, and the location of the warehouse they are assigned to.
 
-Insight:
+### Insight:
 This query uses an INNER JOIN to combine data from the employees and warehouses tables.
-The join condition e.warehouse_id = w.warehouse_id links each employee to the warehouse they belong to. Only employees with a matching warehouse record will appear in the result.
+The join condition e.warehouse_id = w.warehouse_id links each employee to the warehouse they belong to.
+Only employees with a matching warehouse record will appear in the result.
 
 
 
