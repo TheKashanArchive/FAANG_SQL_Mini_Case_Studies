@@ -1,10 +1,6 @@
-# Warehouse & E-Commerce SQL Analysis
-
-**Skills Demonstrated:** SQL · Joins · Aggregations · Window Functions · CTEs · Ranking · Data Analysis · Inventory Analysis
-
 ## Project Overview
 
-This notebook contains SQL queries used to analyze operational and business data from a simulated warehouse and e-commerce system.
+This notebook contains SQL queries used to analyze operational and business data from a simulated warehouse from Amazon and it's e-commerce system containing sellers, customers, products, order_items and so on.
 
 The queries progress from **basic SQL queries** to **advanced analytical queries**, demonstrating practical techniques used in data analysis.
 
