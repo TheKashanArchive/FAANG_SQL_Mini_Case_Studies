@@ -1,4 +1,4 @@
-## Question:
+## 1) Question:
 List all employees with their warehouse locations. Show employee first name, last name, and warehouse location.
 
 SQL Query:
@@ -22,7 +22,7 @@ Only employees with a matching warehouse record will appear in the result.
 
 
 
-### Question:
+### 2) Question:
 Find all customers who are Prime members. Show first name, last name, email, and country.
 
 SQL Query:
@@ -40,7 +40,7 @@ The WHERE clause filters the dataset so that only rows where prime_member = 1 ar
 
 
 
-### Question:
+### 3) Question:
 List all products in the 'Electronics' category. Show product name, price, and stock quantity.
 
 SQL Query:
@@ -61,7 +61,7 @@ The WHERE clause filters the rows so that only products where the category colum
 
 
 
-### Question:
+### 4) Question:
 Find all orders placed after 2024-01-01. Show order ID, customer full name (first and last name combined), and order date.
 
 SQL Query:
@@ -86,7 +86,7 @@ The WHERE clause filters the results to include only orders placed after the spe
 
 
 
-### Question:
+### 5) Question:
 Retrieve all warehouse employees hired in 2024. Show employee first name, last name, hire date, warehouse name, and warehouse location.
 
 SQL Query:
@@ -114,7 +114,7 @@ The INNER JOIN links employees to their warehouses, and ORDER BY e.hire_date DES
 
 
 
-### Question:
+### 6) Question:
 Calculate the average rating for each product category. Show category name, number of products, and average rating. Only include categories with an average rating above 4.0.
 
 SQL Query:
@@ -141,7 +141,7 @@ COUNT(DISTINCT p.product_id) ensures each product is counted once, even if it ha
 
 
 
-### Question:
+### 7) Question:
 For each warehouse, calculate the total number of shipments, total employees, and show capacity information. Display warehouse name, location, employee count, shipment count, and capacity.
 
 SQL Query:
@@ -171,7 +171,7 @@ The GROUP BY clause aggregates the data at the warehouse level, producing a summ
 
 
 
-### Question:
+### 8) Question:
 Find customers who have placed more than 1 order. Show customer name, email, total orders, and total amount spent. Order the results by total amount spent in descending order.
 
 SQL Query:
@@ -198,7 +198,7 @@ The HAVING clause filters grouped results to include only customers with more th
 
 
 
-### Question:
+### 9) Question:
 Find all employees whose salary is higher than the average salary of their department. Show employee name, department name, employee salary, department average salary, and salary difference.
 
 SQL Query:
@@ -236,7 +236,7 @@ The WHERE clause filters only employees whose salary exceeds the department aver
 
 
 
-### Question:
+### 10) Question:
 Create a seller performance report showing seller name, total products sold, total revenue, average product rating, and revenue rank. Include only sellers with at least 2 products sold, and rank sellers by revenue using a window function.
 
 SQL Query:
@@ -270,7 +270,7 @@ The HAVING clause ensures that only sellers with at least two sold products are 
 
 
 
-### Question:
+### 11) Question:
 Create a hierarchical employee report showing each employee with their manager’s name, department, salary difference from their manager, and their rank within their department by salary. Also include the department average salary for comparison.
 
 ```
@@ -315,7 +315,7 @@ COALESCE() ensures that if an employee has no manager, the salary difference def
 
 
 
-### Question:
+### 12) Question:
 Identify products that may need restocking. Calculate days of inventory remaining, revenue impact, warehouse location, and assign a restock priority rank. Use order history to estimate sales and rank products based on low stock and high sales volume.
 
 SQL Query:
@@ -363,7 +363,7 @@ A window function (RANK()) prioritizes products for restocking by ranking low st
 
 
 
-### Question:
+### 13) Question:
 Identify each customer’s highest value order. Show customer name, order ID, order amount, and the rank of the order within that customer’s orders.
 
 SQL Query:
@@ -402,7 +402,7 @@ The outer query filters to only those rows where order_rank = 1, effectively ret
 
 
 
-### Question:
+### 14) Question:
 Calculate the longest gap (in days) between consecutive orders for each customer who has placed at least 3 orders. Show customer name, email, total orders, average gap in days, and maximum gap in days.
 
 ```
@@ -458,7 +458,7 @@ Filtering for customers with at least three orders ensures the analysis is meani
 
 
 
-### Question:
+### 15) Question:
 Create a seller performance report showing seller name, total products sold, total revenue, average product rating, and revenue rank. Include only sellers with at least 2 products sold 
 and rank sellers by revenue using a window function.
 
