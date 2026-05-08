@@ -4,19 +4,29 @@ This notebook contains SQL queries used to analyze operational and business data
 
 The queries progress from basic SQL queries to advanced analytical queries, demonstrating practical techniques used in data analysis.
 
+The focus is on:
+- driver performance analysis
+- rider behavior tracking
+- trip and revenue analysis
+- surge pricing evaluation
+- promotion effectiveness
+- operational efficiency metrics
+
+---
+
 # Table of Contents
 
-1. Count Active Drivers by City
-2. Find the Total Count of Completed Trips
-3. Retrieve All Drivers with a High Rating
-4. Find the Latest Trip for Each Rider
-5. List All Trips Where Surge Pricing Was Applied
-6. Calculate Total Fare Collected by City
-7. Analyze Driver Performance Metrics by City
-8. Calculate the Percentage of Drivers by Vehicle Type
-9. Analyze Trip Volume by Hour to Identify Peak Periods
-10. Analyze Rider Retention
-11. Analyze Promotion Effectiveness
+1. Count Active Drivers by City  
+2. Find the Total Count of Completed Trips  
+3. Retrieve All Drivers with a High Rating  
+4. Find the Latest Trip for Each Rider  
+5. List All Trips Where Surge Pricing Was Applied  
+6. Calculate Total Fare Collected by City  
+7. Analyze Driver Performance Metrics by City  
+8. Calculate the Percentage of Drivers by Vehicle Type  
+9. Analyze Trip Volume by Hour to Identify Peak Periods  
+10. Analyze Rider Retention  
+11. Analyze Promotion Effectiveness  
 
 ---
 
@@ -41,11 +51,11 @@ ORDER BY active_driver_count DESC;
 
 ## Answer / Result
 
-Returns the total number of active drivers operating in each city.
+Returns the number of active drivers operating in each city.
 
 ## Insight
 
-This query uses the COUNT() aggregate function with GROUP BY to analyze driver distribution across different cities.
+This query uses **INNER JOIN with GROUP BY aggregation and COUNT() function** to measure driver distribution across cities and evaluate supply availability per region.
 
 ---
 
@@ -65,11 +75,11 @@ WHERE t.trip_status = 'completed';
 
 ## Answer / Result
 
-Returns the total number of trips that were successfully completed.
+Returns total number of successfully completed trips.
 
 ## Insight
 
-This query measures completed ride activity by filtering only trips with a completed status.
+This query uses a **COUNT aggregation with filtering condition** to measure total ride completion volume on the platform.
 
 ---
 
@@ -95,11 +105,11 @@ ORDER BY d.rating DESC;
 
 ## Answer / Result
 
-Returns all drivers with ratings greater than or equal to 4.5.
+Returns drivers with ratings 4.5 and above.
 
 ## Insight
 
-This query helps identify top-performing drivers based on customer ratings.
+This query uses an **INNER JOIN with WHERE filtering and ORDER BY ranking** to identify top-performing drivers based on customer feedback.
 
 ---
 
@@ -129,11 +139,11 @@ ORDER BY latest_trip_date DESC;
 
 ## Answer / Result
 
-Returns the most recent completed trip information for each rider.
+Returns the most recent trip per rider.
 
 ## Insight
 
-This query uses a correlated subquery with MAX() to retrieve the latest trip activity for every rider.
+This query uses a **correlated subquery with MAX() aggregation** to extract the latest transactional activity for each rider.
 
 ---
 
@@ -163,11 +173,11 @@ ORDER BY t.surge_multiplier DESC;
 
 ## Answer / Result
 
-Returns all completed trips where surge pricing was applied.
+Returns completed trips affected by surge pricing.
 
 ## Insight
 
-This query identifies high-demand rides where fare prices increased due to surge pricing.
+This query uses **multi-table INNER JOINs with conditional filtering** to analyze high-demand pricing behavior in the ride system.
 
 ---
 
@@ -192,11 +202,11 @@ ORDER BY total_fare DESC;
 
 ## Answer / Result
 
-Returns the total fare revenue generated in each city.
+Returns total revenue generated per city.
 
 ## Insight
 
-This query uses the SUM() aggregate function to analyze revenue performance across cities.
+This query uses **SUM() aggregation with GROUP BY city dimension** to evaluate revenue distribution across geographic locations.
 
 ---
 
@@ -225,11 +235,11 @@ ORDER BY total_earnings DESC;
 
 ## Answer / Result
 
-Returns driver statistics including ratings, trips, and earnings grouped by city.
+Returns city-level driver performance metrics.
 
 ## Insight
 
-This query combines multiple aggregate functions to evaluate operational driver performance across different locations.
+This query uses **multiple aggregations with INNER JOIN and LEFT JOIN** to evaluate operational efficiency and driver performance across cities.
 
 ---
 
@@ -262,11 +272,11 @@ ORDER BY percentage DESC;
 
 ## Answer / Result
 
-Returns the percentage distribution of active drivers across vehicle types.
+Returns distribution of active drivers by vehicle type.
 
 ## Insight
 
-This query helps analyze the popularity and operational share of each vehicle category.
+This query uses **GROUP BY with COUNT() and a scalar subquery** to compute proportional distribution of driver vehicle categories.
 
 ---
 
@@ -290,11 +300,11 @@ ORDER BY trip_count DESC;
 
 ## Answer / Result
 
-Returns trip counts and average fares grouped by pickup hour.
+Returns trip demand patterns by hour.
 
 ## Insight
 
-This query helps identify peak ride demand periods throughout the day.
+This query uses **time-based grouping with aggregation functions** to identify peak demand hours and pricing behavior trends.
 
 ---
 
@@ -302,7 +312,7 @@ This query helps identify peak ride demand periods throughout the day.
 
 ## Question
 
-Analyze rider retention by finding riders who have taken more than one trip.
+Analyze rider retention.
 
 ## SQL Query
 
@@ -346,11 +356,11 @@ ORDER BY rgs.avg_gap_days ASC;
 
 ## Answer / Result
 
-Returns riders with multiple completed trips along with their average trip gap.
+Returns riders with repeated trips and average time gaps.
 
 ## Insight
 
-This query uses window functions and CTEs to analyze rider retention and repeat ride behavior.
+This query uses **CTEs and window functions (LAG)** to analyze behavioral retention patterns and repeat usage frequency.
 
 ---
 
@@ -358,7 +368,7 @@ This query uses window functions and CTEs to analyze rider retention and repeat 
 
 ## Question
 
-Analyze promotion effectiveness by comparing promotional ride usage.
+Analyze promotion effectiveness.
 
 ## SQL Query
 
@@ -371,16 +381,14 @@ ROUND(AVG(rp.discount_applied), 2) AS avg_discount_per_use
 FROM promotions p
 INNER JOIN rider_promotions rp
 ON p.promotion_id = rp.promotion_id
-GROUP BY p.promotion_id,
-p.promotion_code,
-p.description
+GROUP BY p.promotion_id, p.promotion_code, p.description
 ORDER BY total_discount DESC;
 ```
 
 ## Answer / Result
 
-Returns promotion usage statistics including total discounts and average discount value.
+Returns promotion usage and discount impact metrics.
 
 ## Insight
 
-This query evaluates how promotional campaigns influenced rider activity and discount utilization.
+This query uses **aggregation with GROUP BY across promotional tables** to evaluate marketing effectiveness and discount utilization patterns.
